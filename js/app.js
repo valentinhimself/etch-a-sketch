@@ -20,7 +20,7 @@ function createCells () {
 
 function changeColorOnHover () {
     for (let i = 0; i < sketchContainer.children.length; i++) {
-        sketchContainer.children[i].addEventListener('mouseover', () => sketchContainer.children[i].style. backgroundColor="gray"
+        sketchContainer.children[i].addEventListener('mouseover', () => sketchContainer.children[i].style.backgroundColor="gray"
         );
     }
 }
