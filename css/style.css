@@ -3,3 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.sketch-container {
+    width: 20rem;
+    height: 20rem;
+    background-color: lightgray;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sketch-container>div {
+    border: 1px solid black;
+    width: 1.25rem;
+}
