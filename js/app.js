@@ -1,34 +1,27 @@
 const sketchContainer = document.querySelector('.sketch-container ');
-const containerWidth= 16;
-const containerHeight = containerWidth;
+const input = document.querySelector('input');
+let containerWidth = input.value;
+let containerHeight = containerWidth;
 
-/*
-function createCells () {
-    for (let i = 0; i<containerWidth*containerWidth; i++) {
-        const sketchCell = document.createElement('div');
-        sketchCell.addEventListener('mouseover', () => sketchCell.setAttribute('style','background-color:gray;'))
-        sketchContainer.appendChild(sketchCell);
-    }
+function startGame () {
+    createCells ();
+    changeColorOnHover () ;
+
 }
-createCells ();
 
-*/
 function createCells () {
     for (let i = 0; i<containerWidth*containerWidth; i++) {
-        sketchContainer.appendChild(document.createElement('div'));
+        const cell = document.createElement('div');
+        cell.style.width = 16/input.value+'em';
+        cell.style.height = 16/input.value+'em';
+        sketchContainer.appendChild(cell);
     }
 }
 
 function changeColorOnHover () {
     for (let i = 0; i < sketchContainer.children.length; i++) {
-        sketchContainer.children[i].addEventListener('mouseover', () => sketchContainer.children[i].setAttribute('style','background-color:gray;'));
+        sketchContainer.children[i].addEventListener('mouseover', () => sketchContainer.children[i].style. backgroundColor="gray"
+        );
     }
 }
-createCells ();
-changeColorOnHover ();
-
-        //sketchCell.addEventListener('mouseover', () => sketchCell.setAttribute('style','background-color:gray;'))
-
-//const sketchCell = document.querySelector('.sketch-container>div')
-//sketchCell.addEventListener('mouseover', () => sketchCell.setAttribute('style','background-color:blue;'))
-
+startGame () ;
