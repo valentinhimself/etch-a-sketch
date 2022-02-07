@@ -2,6 +2,7 @@ const sketchContainer = document.querySelector('.sketch-container ');
 const input = document.querySelector('input');
 let containerWidth = input.value;
 let containerHeight = containerWidth;
+input.addEventListener ('change', updateValue)
 
 function startGame () {
     createCells ();
@@ -24,4 +25,18 @@ function changeColorOnHover () {
         );
     }
 }
+
+function removeCells () {
+    while (sketchContainer.children.length>0) {
+        sketchContainer.removeChild(sketchContainer.firstChild)
+    }
+}
+
+function updateValue(e) {
+    removeCells ();
+    containerWidth = e.target.value;
+    startGame();
+
+  }
+
 startGame () ;
