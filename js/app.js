@@ -5,6 +5,7 @@ let containerHeight = containerWidth;
 input.addEventListener ('change', updateValue)
 
 function startGame () {
+    input.step = 16;
     createCells ();
     changeColorOnHover () ;
 
@@ -13,8 +14,8 @@ function startGame () {
 function createCells () {
     for (let i = 0; i<containerWidth*containerWidth; i++) {
         const cell = document.createElement('div');
-        cell.style.width = 16/input.value+'em';
-        cell.style.height = 16/input.value+'em';
+        cell.style.width = 24/input.value+'em';
+        cell.style.height = 24/input.value+'em';
         sketchContainer.appendChild(cell);
     }
 }
