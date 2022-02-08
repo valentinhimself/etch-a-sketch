@@ -1,10 +1,13 @@
 const sketchContainer = document.querySelector('.sketch-container ');
 const input = document.querySelector('input');
-input.addEventListener ('change', updateValue)
 let containerWidth = input.value;
 let containerHeight = containerWidth;
 const flag = document.querySelector('#flag');
+const reset = document.querySelector('.btn-reset');
+const sizeLabel = document.querySelector('.size-label')
+input.addEventListener ('change', updateValue);
 flag.addEventListener('click', changeFlag);
+reset.addEventListener('click', resetSketch);
 
 function changeFlag(e){
     if(e.target.value==="false") {
@@ -21,13 +24,14 @@ function changeFlag(e){
 
 function randomColor () {
     let colorArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-    let pickColor = Math.floor(Math.random()*7)
+    let pickColor = Math.floor(Math.random()*7);
     return colorArray[pickColor];
 }
 
 
 function startGame () {
     input.step = 16;
+    sizeLabel.textContent = `${containerWidth} x ${containerWidth}`
     createCells ();
     changeColorOnHover () ;
 
@@ -66,6 +70,11 @@ function updateValue(e) {
     removeCells ();
     containerWidth = e.target.value;
     startGame();
-  }
+}
 
+function resetSketch () {
+    for (let i = 0; i < sketchContainer.children.length; i++) {
+        sketchContainer.children[i].style.backgroundColor = "lightgray"; }
+}
+ 
 startGame () ;
