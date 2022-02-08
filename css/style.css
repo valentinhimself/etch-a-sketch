@@ -40,8 +40,7 @@ input {
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
+
   width: 25px;
   height: 25px;
   background: #FF0000;
@@ -60,4 +59,12 @@ input {
 .tickmarks {
     display: flex;
     justify-content: space-between;
+}
+
+#flag {
+  background-color: #FF0000;
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin: 5px;
 }

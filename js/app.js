@@ -1,8 +1,30 @@
 const sketchContainer = document.querySelector('.sketch-container ');
 const input = document.querySelector('input');
+input.addEventListener ('change', updateValue)
 let containerWidth = input.value;
 let containerHeight = containerWidth;
-input.addEventListener ('change', updateValue)
+const flag = document.querySelector('#flag');
+flag.addEventListener('click', changeFlag);
+
+function changeFlag(e){
+    if(e.target.value==="false") {
+        e.target.value = "true";
+        e.target.style.backgroundColor="pink";
+        e.target.textContent = "RGB mode ON";
+    }
+    else {
+        e.target.value = "false";
+        e.target.style.backgroundColor="";
+        e.target.textContent = "Gray scale mode ON";
+    }
+}
+
+function randomColor () {
+    let colorArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+    let pickColor = Math.floor(Math.random()*7)
+    return colorArray[pickColor];
+}
+
 
 function startGame () {
     input.step = 16;
@@ -22,8 +44,15 @@ function createCells () {
 
 function changeColorOnHover () {
     for (let i = 0; i < sketchContainer.children.length; i++) {
-        sketchContainer.children[i].addEventListener('mouseover', () => sketchContainer.children[i].style.backgroundColor="gray"
-        );
+        sketchContainer.children[i].addEventListener('mouseover', () => {
+            if (flag.value=="false") {
+                sketchContainer.children[i].style.backgroundColor = "gray";
+            }
+            else {
+                sketchContainer.children[i].style.backgroundColor = randomColor();
+            }
+            
+        });
     }
 }
 
@@ -37,7 +66,6 @@ function updateValue(e) {
     removeCells ();
     containerWidth = e.target.value;
     startGame();
-
   }
 
 startGame () ;
