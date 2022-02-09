@@ -12,7 +12,7 @@ reset.addEventListener('click', resetSketch);
 function changeFlag(e){
     if(e.target.value==="false") {
         e.target.value = "true";
-        e.target.style.backgroundColor="pink";
+        e.target.style.backgroundColor='pink';
         e.target.textContent = "RGB mode ON";
     }
     else {

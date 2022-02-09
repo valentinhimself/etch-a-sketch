@@ -4,7 +4,17 @@
     box-sizing: border-box;
 }
 
+h1 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.main-container p {
+  text-align: center;
+}
+
 .sketch-container {
+    margin: auto;
     width: 24em;
     background-color: lightgray;
     display: flex;
@@ -16,6 +26,7 @@
 
 }
 .slidecontainer {
+  margin: auto;
     width: 24em;
 }
 
