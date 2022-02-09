@@ -16,7 +16,7 @@ h1 {
 .sketch-container {
     margin: auto;
     width: 24em;
-    background-color: lightgray;
+    background-color: rgb(236, 234, 234);
     display: flex;
     flex-wrap: wrap;
 }
@@ -55,14 +55,16 @@ input {
     justify-content: space-between;
 }
 
-#flag {
-  background-color: #FF0000;
-  border: 1px solid red;
+#flag, .btn-reset {
+  background-color: #6583e4;
+  border: 1px solid rgb(99, 75, 233);
   border-radius: 4px;
   padding: 5px 10px;
   margin: 5px;
 }
 
-.btn-reset {
-  display: block;
+.btn-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
