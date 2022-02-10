@@ -55,7 +55,7 @@ input {
     justify-content: space-between;
 }
 
-#flag, .btn-reset {
+#flag, #shade, .btn-reset {
   background-color: #6583e4;
   border: 1px solid rgb(99, 75, 233);
   border-radius: 4px;

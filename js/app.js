@@ -3,11 +3,26 @@ const input = document.querySelector('input');
 let containerWidth = input.value;
 let containerHeight = containerWidth;
 const flag = document.querySelector('#flag');
+const shade = document.querySelector('#shade')
 const reset = document.querySelector('.btn-reset');
 const sizeLabel = document.querySelector('.size-label')
 input.addEventListener ('change', updateValue);
 flag.addEventListener('click', changeFlag);
+shade.addEventListener('click', switchShading);
 reset.addEventListener('click', resetSketch);
+
+function switchShading (e) {
+    if(e.target.value==="false") {
+        e.target.value = "true";
+        e.target.style.backgroundColor='#4a63b4';
+        e.target.textContent = "Shade mode ON";
+    }
+    else {
+        e.target.value = "false";
+        e.target.style.backgroundColor="";
+        e.target.textContent = "Shade mode OFF";
+    }
+}
 
 function changeFlag(e){
     if(e.target.value==="false") {
@@ -47,16 +62,21 @@ function createCells () {
 }
 
 function changeColorOnHover () {
+
     for (let i = 0; i < sketchContainer.children.length; i++) {
+        let opacity = 0.1;
         sketchContainer.children[i].addEventListener('mouseover', (e) => {
             if (flag.value=="false") {
-                e.target.style.backgroundColor = `gray`
-                // sketchContainer.children[i].style.backgroundColor = "gray";
+                e.target.style.backgroundColor = `black` //`gray`;
             }
             else {
                 e.target.style.backgroundColor = randomColor();
             }
-            
+            if (shade.value=="true") {
+                e.target.style.opacity = opacity;
+                opacity = (+window.getComputedStyle(e.target,null).getPropertyValue('opacity'))+0.1;
+            }
+
         });
     }
 }
@@ -75,7 +95,9 @@ function updateValue(e) {
 
 function resetSketch () {
     for (let i = 0; i < sketchContainer.children.length; i++) {
-        sketchContainer.children[i].style.backgroundColor = "rgb(236, 234, 234)"; }
+        sketchContainer.children[i].style.backgroundColor = "rgb(236, 234, 234)"; 
+        sketchContainer.children[i].style.opacity = 1;
+    }
 }
  
 startGame () ;
